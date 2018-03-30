@@ -1,0 +1,11 @@
+
+/************** Mes styles ***************/
+
+.divTri{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: space-between;
+}
