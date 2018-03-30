@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<title>deezer projet</title>
+		<meta name="description" content="Discover our beautiful agency with Unicorns">
+		<link rel="stylesheet" href="css/styles.css"> 
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<link href="css/normalize.min.css" rel="stylesheet" type="text/css">
+		<link href="css/noset.css" rel="stylesheet" type="text/css">
+		<meta name="viewport" content="width-device-width, initial-scale=1.0, shrink-to-fit-no"> <!-- Pour le responsive -->
+		<link rel="stylesheet" href="css/styles.css"> <!-- Feuille CSS liee -->
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,600i" rel="stylesheet"> <!-- Google font -->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+	</head>
+	
+		<div class="w3-sidebar w3-bar-block w3-white w3-animate-left" style="display:none;z-index:4" id="mySidebar">
+		  <button class="w3-bar-item w3-button" onclick="w3_close()">X</button>
+		  <a href="#" class="w3-bar-item w3-button">Menu</a>
+		  <a href="#" class="w3-bar-item w3-button">DeezWeb</a>
+		  <a href="#" class="w3-bar-item w3-button">Recherche</a>
+		  <a href="#" class="w3-bar-item w3-button">Mes favoris</a>
+		</div>
+
+		<!-- Overlay -->
+		<div class="w3-overlay" onclick="w3_close()" style="cursor:pointer"></div>
+
+		<!-- Page content -->
+		<button class="w3-button w3-xxlarge" onclick="w3_open()">&#9776;</button>
+		<div class="w3-container">
+		  <h1>Page de recherche</h1>
+		  <p>Recherche sur Deezer</p>
+
+		  <div class="divTri">
+			  	<input type="search" id="barrecherche">
+					<form action="post" action=""></form>
+						  <label for="trimusique"></label>
+						  <select name="trimusique" id="trimusique">
+						  	<option selected value="Trier les résultats de recherche par ..." class="active" >Trier les résultats de recherche par ...</option>
+						  	<option value="Album" id="album">Album</option>
+						  	<option value="Artiste" id="artiste">Artiste</option>
+						  	<option value="Musique" id="musique">Musique</option>
+						  	<option value="Les plus populaires" id="populaire">Les plus populaires</option>
+						  	<option value="Les mieux notés" id="mieuxnote">Les mieux notés</option>
+						  </select>
+					</form>	
+				<button id="boutonrechercher">Rechercher</button>
+			</div> <!-- Fin de la divTri -->
+		<h2>Resultat de recherche</h2>
+			<div class="container-artist"></div>
+		</div> <!-- Fin de la div w3-container -->
+	
+        <script src="node_modules/jquery/dist/jquery.js" type="text/javascript"></script>
+		<script src="JS/main.js"></script>
+		<script src="node_modules/vue/dist/vue.js" type="text/javascript"></script>
+		
+	</body>
+</html>
+
+
+
+
