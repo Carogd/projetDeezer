@@ -10,10 +10,31 @@
 	justify-content: space-between;
 }
 
-div .album-img{
+.resultats{
 	display: -webkit-flex;
 	display: -moz-flex;
 	display: -ms-flex;
 	display: -o-flex;
 	display: flex;
+	flex-wrap: wrap;
+	text-align: center;
+}
+
+.container-artist{
+	margin-bottom: 3vh;
+	background-color:black;
+	width: 273px;
+	margin-right: .5%;
+	padding-top: 2vh;
+}
+
+.container-artist p {
+    background-color:white;
+    display: inline-block;
+	width: 248px;
+    margin-top: 1vh;
+}
+
+.container-info-artiste {
+	font-size: .8em
 }

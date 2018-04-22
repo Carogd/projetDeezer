@@ -32,7 +32,6 @@
 	}
 
 	function consulterAlbum(resultat) {
-
 		return function (event) {
 
 			// var url = window.location.href.indexOf('album/');
@@ -62,7 +61,6 @@
 		sortie.empty();
 
 		for (var i = 0; i < data.length; i++) {
-
 			var idAlbum = data[i].album.id;
 			var consulterAlbumBoutonId = 'consulterAlbumBouton' + i;
 			var div = $('<div class="container-artist"></div>');
@@ -70,13 +68,12 @@
 
 			// console.log(div)
 
-			div.append('<div class="container"><div id="numeroArtiste"><p>Album N°</p>' +
-				i + '</div>');
-
+			//append('<div class="container"><div id="numeroArtiste"><p>Album N°</p>' +
+			//		i + '</div>')
 			div.append('<div class="album-img"><img src="' + data[i].album.cover_medium +
 					'"></div>')
-				.append('<h2>' + data[i].artist.name + ' / Album : ' + data[i].album.title + ' / Duree : ' +
-					data[i].duration + ' minutes </h2>')
+				.append('<p>' + data[i].album.title + '</br> Duree : ' +
+					data[i].duration + ' minutes </p>')
 				.append('<div class="container-info-artiste flex">' +
 					'<button class="w3-bar-item w3-button w3-black">' +
 					'écouter un extrait' +
@@ -90,22 +87,49 @@
 					'</div></div>');
 
 			$(document).on('click', '#' + consulterAlbumBoutonId, consulterAlbum(data[i]));
-
 		} /* Boucle for */
+	}
+
+	function changeRoute(route, initial) {
+		// Page intiale de retour sinon page avec le bon path
+		if (initial) {
+			history.pushState(null, null, "/Recherche");
+			// alert("1ere fois");
+			$("div.view").hide(0, function () {
+				$("div.view[data-link='/Recherche'").show();
+			});
+		} else {
+			getArticle(route);
+		}
+	}
+
+	var links = $(".page-link");
+	links.click(function (event) {
+
+		event.preventDefault();
+		event.stopPropagation(); // Modification de l'url avec la valeur du lien
+		var target = event.target;
+		route = $(target).attr("data-href");
+		alert("ajout de la route " + route + " dans l'historique");
+		history.pushState(null, null, route);
+		changeRoute(route); // Modification du contenu de la page
+	});
+
+	function getArticle(route) {
+		alert("affichage de la page" + route);
+		$(".view").hide(0, function () {
+			$("div.view[data-link='" + route + "'").show();
+		});
 	}
 
 	(function () {
 		'use strict';
 		$(document).ready(function () {
-
-			if (window.history && window.history.pushState) {
-				window.history.pushState('forward', null, './#forward');
-				$(window).on('popstate', function () {
-					alert('Back button was pressed.');
-				});
+			window.onpopstate = function () {
+				changeRoute(window.location.pathname);
 			}
-
-			openView('pagerecherche');
+			changeRoute(null, true);
+			//openView('pagerecherche');
 
 			// Faire apparaitre dans la page apres avoir taper dans la bar de recherche
 			var albumOption = $("option:contains('Album')")[0].value;
